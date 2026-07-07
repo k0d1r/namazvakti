@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaz Vakti - Vaktini Bil, Huzurla Yaşa</title>
+    <meta name="description" content="Namaz Vakti uygulaması - Namaz vakitleri, kıble pusulası, Kur'an-ı Kerim, zikirler ve dualar. Tamamen ücretsiz ve reklamsız.">
+    <meta name="keywords" content="namaz vakti, ezan, kıble, kur'an, zikir, dua, islam">
+    <meta property="og:title" content="Namaz Vakti">
+    <meta property="og:description" content="Vaktini Bil, Huzurla Yaşa">
+    <meta property="og:type" content="website">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a2e1a 0%, #0d4a2a 50%, #0a2e1a 100%);
+            color: #fff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        .logo-icon { font-size: 32px; }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #d4af37; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .hero-icon { font-size: 80px; margin-bottom: 30px; }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+        .feature-icon { font-size: 40px; margin-bottom: 15px; }
+        .feature-card h3 {
+            color: #d4af37;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .feature-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        /* Privacy Badge */
+        .privacy-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .privacy-badge h3 { color: #d4af37; margin-bottom: 10px; }
+        .privacy-badge p { color: rgba(255,255,255,0.7); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+        }
+        footer a { color: #d4af37; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            margin: 0 10px;
+            font-size: 13px;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-content h1 { color: #d4af37; font-size: 32px; margin-bottom: 30px; }
+        .page-content h2 { color: #d4af37; font-size: 22px; margin: 30px 0 15px; }
+        .page-content h3 { color: #d4af37; font-size: 18px; margin: 20px 0 10px; }
+        .page-content p { margin-bottom: 15px; color: rgba(255,255,255,0.8); }
+        .page-content ul { margin: 10px 0 20px 20px; color: rgba(255,255,255,0.8); }
+        .page-content li { margin-bottom: 8px; }
+        .page-content strong { color: #fff; }
+
+        /* Contact Form */
+        .contact-info {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        .contact-info a { color: #d4af37; }
+
+        /* FAQ */
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .faq-item h3 { color: #d4af37; font-size: 16px; margin-bottom: 8px; }
+        .faq-item p { color: rgba(255,255,255,0.7); font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .features { grid-template-columns: 1fr; }
+            nav { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">🕌</span>
+                    <span>Namaz Vakti</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/">Ana Sayfa</a>
+                    <a href="privacy">Gizlilik Politikası</a>
+                    <a href="kvkk">KVKK</a>
+                    <a href="terms">Kullanım Koşulları</a>
+                    <a href="faq">SSS</a>
+                    <a href="contact">İletişim</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-icon">🕌</div>
+                <h1>Namaz Vakti</h1>
+                <p>Vaktini Bil, Huzurla Yaşa. Namaz vakitleri, kıble pusulası, Kur'an-ı Kerim, zikirler ve dualar tek uygulamada.</p>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🕋</div>
+                    <h3>Namaz Vakitleri</h3>
+                    <p>Hibrit mimari (kamu kaynakları ve yerel astronomik formüller) ile hassas hesaplama. Otomatik konum bulma ve görsel geri sayım sayacı.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧭</div>
+                    <h3>Kıble Pusulası</h3>
+                    <p>Gerçek zamanlı pusula ile hassas kıble yönü tespiti. Nerede olursanız olun yönünüzü bulun.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Kur'an-ı Kerim</h3>
+                    <p>Güvenilir ve açık kaynaklı Türkçe meal. Sure ve ayet bazlı okuma, ayet kaydetme ve arama özelliği.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤲</div>
+                    <h3>Zikirler ve Dualar</h3>
+                    <p>Sabah, akşam ve namaz sonrası zikirler. Özel zikir ekleme ve Zikirmatik sayacı.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Hadis Kütüphanesi</h3>
+                    <p>Sahih-i Buhari, Müslim ve daha fazlası. Kategorilere göre hadisler.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Gizlilik Odaklı</h3>
+                    <p>Reklam yok, analitik yok. Tüm verileriniz cihazınızda kalır. Tamamen ücretsiz.</p>
+                </div>
+            </section>
+
+            <section class="privacy-badge">
+                <h3>🔒 Gizliliğiniz Bizim İçin Önemli</h3>
+                <p>Namaz Vakti, hiçbir kişisel verinizi toplamaz, saklamaz veya üçüncü taraflarla paylaşmaz. Tüm verileriniz yalnızca cihazınızda kalır. Reklam ve analitik içermez.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy">Gizlilik Politikası</a>
+                <a href="kvkk">KVKK</a>
+                <a href="terms">Kullanım Koşulları</a>
+                <a href="faq">SSS</a>
+                <a href="contact">İletişim</a>
+            </div>
+            <p>© 2026 Namaz Vakti. Tüm hakları saklıdır.</p>
+            <p>İletişim: <a href="mailto:kadirtalhaak@proton.me">kadirtalhaak@proton.me</a></p>
+        </div>
+    </footer>
+</body>
+</html>
